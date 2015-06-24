@@ -4,8 +4,6 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "connect": "^3.4.0",
-    "connect-static": "^1.5.0",
     "node-static": "^0.7.6"
   },
   "devDependencies": {},
