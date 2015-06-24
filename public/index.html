@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Parent</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var api = (function() {
+        function private_method() {
+          console.log('private! You cant call me!');
+        }
+        return {
+          move: function() {
+            console.log('moved');
+          },
+          jump: function() {
+            console.log('jump');
+          },
+          fire: function() {
+            console.log('fire');
+          },
+          _hidden_foo: function() {
+            private_method();
+          }
+        };
+      })();
+    </script>
+    <iframe src="frame.html"></iframe>
+  </body>
+</html>
