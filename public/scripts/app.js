@@ -2,7 +2,8 @@
 var app = {
 
   startApp: function() {
-    var iframe = document.getElementById('canvas-iframe');
+    // Create the iframe for the sandbox
+    var iframe = app.createSandbox();
 
     // Copy API to sandbox and remove parent access
     app.copyAPI(iframe);
@@ -16,19 +17,26 @@ var app = {
     });
   },
 
+  createSandbox: function() {
+    iframe = document.createElement("IFRAME");
+    iframe.setAttribute("src", "about:blank");
+    iframe.style.width = 0+"px";
+    iframe.style.height = 0+"px";
+    iframe.style.display = "none";
+    document.body.appendChild(iframe);
+    return iframe;
+  },
+
   copyAPI: function(iframe) {
     var sandbox = iframe.contentWindow;
 
-    // Copy api object to the sandbox
-    sandbox.api = api;
-
-    // Convert api.move() to move() etc
+    // Copy api object methods to sandbox
+    // IE: parent.api.move() -> move()
     for (key in api) {
       sandbox[key] = api[key];
     }
 
     // Prevent access to parent objects and their methods
-    sandbox.api = "";
     sandbox.window.parent = "";
   },
 
