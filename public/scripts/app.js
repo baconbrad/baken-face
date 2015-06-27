@@ -19,16 +19,13 @@ var app = {
   copyAPI: function(iframe) {
     var sandbox = iframe.contentWindow;
 
-    // Copy api object to the sandbox
-    sandbox.api = api;
-
-    // Convert api.move() to move() etc
+    // Copy api object methods to sandbox
+    // IE: parent.api.move() -> move()
     for (key in api) {
       sandbox[key] = api[key];
     }
 
     // Prevent access to parent objects and their methods
-    sandbox.api = "";
     sandbox.window.parent = "";
   },
 
