@@ -2,7 +2,8 @@
 var app = {
 
   startApp: function() {
-    var iframe = document.getElementById('canvas-iframe');
+    // Create the iframe for the sandbox
+    var iframe = app.createSandbox();
 
     // Copy API to sandbox and remove parent access
     app.copyAPI(iframe);
@@ -14,6 +15,16 @@ var app = {
     iframe.addEventListener('onload', function() {  
       app.copyAPI(iframe);
     });
+  },
+
+  createSandbox: function() {
+    iframe = document.createElement("IFRAME");
+    iframe.setAttribute("src", "about:blank");
+    iframe.style.width = 0+"px";
+    iframe.style.height = 0+"px";
+    iframe.style.display = "none";
+    document.body.appendChild(iframe);
+    return iframe;
   },
 
   copyAPI: function(iframe) {
