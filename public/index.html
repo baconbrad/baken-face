@@ -4,27 +4,8 @@
     <title>Parent</title>
   </head>
   <body>
-    <script type="text/javascript">
-      var api = (function() {
-        function private_method() {
-          console.log('private! You cant call me!');
-        }
-        return {
-          move: function() {
-            console.log('moved');
-          },
-          jump: function() {
-            console.log('jump');
-          },
-          fire: function() {
-            console.log('fire');
-          },
-          _hidden_foo: function() {
-            private_method();
-          }
-        };
-      })();
-    </script>
-    <iframe src="frame.html"></iframe>
+    <iframe src="about:blank" id="canvas-iframe"></iframe>
+    <script type="text/javascript" src="scripts/api.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
   </body>
 </html>

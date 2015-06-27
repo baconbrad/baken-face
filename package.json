@@ -1,7 +1,7 @@
 {
   "name": "baken-face",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Allows a user to inject sandboxed JavaScript without full access to parent",
   "main": "server.js",
   "dependencies": {
     "node-static": "^0.7.6"
@@ -12,5 +12,13 @@
     "start": "node server.js"
   },
   "author": "Blaine Schmeisser",
+  "contributors": [
+    {
+      "name": "Bradley Metcalf"
+    },
+    {
+      "name": "F5 IPA by Coop"
+    }
+  ],
   "license": "MIT"
 }
